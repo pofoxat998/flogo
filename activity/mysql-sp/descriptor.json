@@ -1,0 +1,22 @@
+{
+  "name": "mysql-sp",
+  "type": "flogo:activity",
+  "version": "0.9.0",
+  "title": "mysql-sp",
+  "description": "call mysql store procedure",
+  "homepage": "https://github.com/pofoxat998/flogo/activity/mysql-sp",
+  "input":[
+    {
+      "name": "connectionString",
+      "type": "string",
+      "value": "",
+      "description": "mysql connectionString"
+    },
+    {
+      "name": "sqlStatement",
+      "type": "string",
+      "value": "",
+      "description": "sql statement with CALL"
+    }
+  ]
+}

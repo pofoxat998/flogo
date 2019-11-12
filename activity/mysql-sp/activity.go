@@ -1,8 +1,6 @@
 package mysqlcallsp
 
 import (
-	"fmt"
-
 	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/coerce"
 
@@ -72,7 +70,7 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 	defer db.Close()
 
 	// Prepare statement for inserting data
-	stmtIns, err := db.Prepare(sqlStatement) // ? = placeholder
+	stmtIns, err := db.Prepare(input.sqlStatement) // ? = placeholder
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}

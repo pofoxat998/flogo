@@ -10,7 +10,7 @@
       "name": "connectionString",
       "type": "string",
       "value": "",
-      "description": "mysql connectionString"
+      "description": "mysql connection string"
     },
     {
       "name": "sqlStatement",

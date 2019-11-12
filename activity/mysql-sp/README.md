@@ -1,25 +1,20 @@
-<!--
-title: Log
-weight: 4615
--->
-
-# Log
-This activity allows you to write log messages.
+# mysql-sp
+This activity allows you to call mysql store procedure
 
 ## Installation
 
 ### Flogo CLI
 ```bash
-flogo install github.com/project-flogo/contrib/activity/log
+flogo install github.com/pofoxat998/flogo/tree/master/activity/mysql-sp
 ```
 
 ## Configuration
 
 ### Input:
-| Name       | Type   | Description
-|:---        | :---   | :---    
-| message    | string | The message to log
-| addDetails | bool   | Append contextual execution information to the log message
+| Name     			  | Type   | Description
+|:---      			  | :---   | :---    
+| connectionString    | string | connection string to mysql server
+| sqlStatement 		  | string | sql statement with CALL
 
 ## Examples
 The below example logs a message 'test message':

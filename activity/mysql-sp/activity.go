@@ -1,4 +1,4 @@
-package mysql-sp
+package mysqlcallsp
 
 import (
 	"fmt"

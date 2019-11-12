@@ -1,4 +1,4 @@
-# mysql-sp
+# mysqlcallsp
 This activity allows you to call mysql store procedure
 
 ## Installation

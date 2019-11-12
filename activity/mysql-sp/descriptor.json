@@ -2,7 +2,7 @@
   "name": "mysql-sp",
   "type": "flogo:activity",
   "version": "0.9.0",
-  "title": "mysql-sp",
+  "title": "mysql - call store procedure",
   "description": "call mysql store procedure",
   "homepage": "https://github.com/pofoxat998/flogo/activity/mysql-sp",
   "input":[

@@ -3,40 +3,12 @@ package mysqlcallsp
 import (
 	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/coerce"
-
     "database/sql"
 	_ "github.com/go-sql-driver/mysql"
 )
 
 func init() {
 	_ = activity.Register(&Activity{})
-}
-
-type Input struct {
-	connectionString    string `md:"connectionString"`     // connection String
-	sqlStatement    string `md:"sqlStatement"`     // sql Statement
-}
-
-func (i *Input) ToMap() map[string]interface{} {
-	return map[string]interface{}{
-		"connectionString":    i.connectionString,
-		"sqlStatement": i.sqlStatement,
-	}
-}
-
-func (i *Input) FromMap(values map[string]interface{}) error {
-
-	var err error
-	i.connectionString, err = coerce.ToString(values["connectionString"])
-	if err != nil {
-		return err
-	}
-	i.sqlStatement, err = coerce.ToString(values["sqlStatement"])
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 var activityMd = activity.ToMetadata(&Input{})
@@ -56,12 +28,12 @@ func (a *Activity) Metadata() *activity.Metadata {
 func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 
 	input := &Input{}
-	ctx.GetInputObject(input)
-
-	if ctx.Logger().DebugEnabled() {
-		ctx.Logger().Debug("connection to db")
+	err = ctx.GetInputObject(input)
+	if err != nil {
+		return true, err
 	}
-
+	ctx.Logger().Debugf("Input: %s", input.sqlStatement)
+	
     // db 
 	db, err := sql.Open("mysql", input.connectionString)
 	if err != nil {
